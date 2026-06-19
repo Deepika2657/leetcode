@@ -5,23 +5,20 @@ class Solution(object):
         :type sena90te: str
         :rtype: str
         """
-        radiant = deque()
-        dire = deque()
-        n = len(senate)
-
-        for i, s in enumerate(senate):
-            if s == 'R':
+    
+        radiant=deque()
+        dire=deque()
+        n=len(senate)
+        for i,value in enumerate(senate):
+            if value=="R":
                 radiant.append(i)
             else:
                 dire.append(i)
-
         while radiant and dire:
-            r = radiant.popleft()
-            d = dire.popleft()
-            if r < d:
-                radiant.append(r + n)
+            r=radiant.popleft()
+            d=dire.popleft()
+            if r<d:
+                radiant.append(r+n)
             else:
-                dire.append(d + n)
-
+                dire.append(d+n)
         return "Radiant" if radiant else "Dire"
-        
